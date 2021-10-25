@@ -1,0 +1,41 @@
+name: Radiation
+version: 1.0
+main: guillec.radiation.Radiation
+commands:
+  radiation:
+    description: Informacion del plugin.
+    usage: /radiation
+    permission: radiation.user
+    permission-message: Necesitas el permiso <permission> para usar este comando!
+  geiger:
+    description: Medir el nivel de radiacion alrededor.
+    usage: /geiger
+    permission: radiation.geiger
+    permission-message: Necesitas el permiso <permission> para usar este comando!
+  rads:
+    description: Informacion del plugin
+    usage: /radiation
+    permission: radiation.user
+    permission-message: Necesitas el permiso <permission> para usar este comando!
+permissions:
+  radiation.*:
+    description: Da acceso a todos los comandos de Radiation
+    children:
+      radiation.user: true
+      radiation.geiger: true
+      radiation.hazmat: false
+      radiation.ghoul: false
+  radiation.user:
+    description: Acceso por defecto para usuarios
+    children:
+      radiation.geiger: true
+    default: true
+  radiation.geiger:
+    description: Acceso a medir radiacion
+    default: true
+  radiation.hazmat:
+    description: Previene el dano por radiacion
+    default: false
+  radiation.ghoul:
+    description: La radiacion cura en lugar de danar
+    default: false
